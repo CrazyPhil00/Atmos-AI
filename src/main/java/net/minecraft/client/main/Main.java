@@ -17,6 +17,8 @@ import java.util.List;
 import java.util.Optional;
 import java.util.OptionalInt;
 import javax.annotation.Nullable;
+
+import it.sieben.Atmos;
 import joptsimple.ArgumentAcceptingOptionSpec;
 import joptsimple.OptionParser;
 import joptsimple.OptionSet;
@@ -45,6 +47,8 @@ import org.slf4j.Logger;
 @OnlyIn(Dist.CLIENT)
 public class Main {
    static final Logger LOGGER = LogUtils.getLogger();
+
+   public static Atmos atmos = new Atmos();
 
    @DontObfuscate
    public static void main(String[] p_129642_) {
@@ -220,6 +224,10 @@ public class Main {
       } finally {
          minecraft.destroy();
       }
+
+      //TODO Preloading Atmos
+
+      atmos.preLoad();
 
    }
 

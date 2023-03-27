@@ -9,22 +9,13 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.ParseResults;
 import com.mojang.logging.LogUtils;
 import io.netty.buffer.Unpooled;
+import it.sieben.commands.Command;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.time.Duration;
 import java.time.Instant;
-import java.util.ArrayList;
-import java.util.BitSet;
-import java.util.Collection;
-import java.util.Collections;
-import java.util.HashMap;
-import java.util.Iterator;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
-import java.util.Set;
-import java.util.UUID;
+import java.util.*;
 import java.util.concurrent.CompletableFuture;
 import java.util.function.BooleanSupplier;
 import javax.annotation.Nullable;
@@ -2369,12 +2360,24 @@ public class ClientPacketListener implements TickablePacketListener, ClientGameP
 
    }
 
-   public void sendChat(String p_249888_) {
+   //TODO Added command System
+   public void sendChat(String msg) {
+      if (msg.startsWith(".")) {
+         String[] args = Arrays.copyOfRange(msg.split(" "), 1, msg.split(" ").length);
+         String command = msg.split(" ")[0].replaceAll(".", "");
+         Player player = Minecraft.getInstance().player;
+
+         if (Command.performCommand(player, command, args)) {
+            System.out.println("Failed to perform command.");
+         }else System.out.println("Successfully performed command.");
+         return;
+      }
+
       Instant instant = Instant.now();
       long i = Crypt.SaltSupplier.getLong();
       LastSeenMessagesTracker.Update lastseenmessagestracker$update = this.lastSeenMessages.generateAndApplyUpdate();
-      MessageSignature messagesignature = this.signedMessageEncoder.pack(new SignedMessageBody(p_249888_, instant, i, lastseenmessagestracker$update.lastSeen()));
-      this.send(new ServerboundChatPacket(p_249888_, instant, i, messagesignature, lastseenmessagestracker$update.update()));
+      MessageSignature messagesignature = this.signedMessageEncoder.pack(new SignedMessageBody(msg, instant, i, lastseenmessagestracker$update.lastSeen()));
+      this.send(new ServerboundChatPacket(msg, instant, i, messagesignature, lastseenmessagestracker$update.update()));
    }
 
    public void sendCommand(String p_250092_) {

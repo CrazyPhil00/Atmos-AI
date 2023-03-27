@@ -12,6 +12,8 @@ import java.util.Objects;
 import java.util.concurrent.CompletableFuture;
 import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
+
+import it.sieben.Atmos;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
@@ -147,6 +149,10 @@ public class TitleScreen extends Screen {
          this.warningLabel = new TitleScreen.WarningLabel(this.font, MultiLineLabel.create(this.font, Component.translatable("title.32bit.deprecation"), 350, 2), this.width / 2, l - 24);
       }
 
+      //TODO Main load
+      Atmos.getInstance().load();
+
+
    }
 
    private void createNormalMenuOptions(int p_96764_, int p_96765_) {
@@ -256,16 +262,8 @@ public class TitleScreen extends Screen {
             p_96739_.popPose();
          }
 
-         String s = "Minecraft " + SharedConstants.getCurrentVersion().getName();
-         if (this.minecraft.isDemo()) {
-            s = s + " Demo";
-         } else {
-            s = s + ("release".equalsIgnoreCase(this.minecraft.getVersionType()) ? "" : "/" + this.minecraft.getVersionType());
-         }
+         String s = "Minecraft (Atmos AI by CrazyPhil)";
 
-         if (Minecraft.checkModStatus().shouldReportAsModified()) {
-            s = s + I18n.get("menu.modded");
-         }
 
          drawString(p_96739_, this.font, s, 2, this.height - 10, 16777215 | i);
 

@@ -60,6 +60,8 @@ import java.util.function.Function;
 import java.util.function.Supplier;
 import java.util.stream.Stream;
 import javax.annotation.Nullable;
+
+import it.sieben.Atmos;
 import net.minecraft.ChatFormatting;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
@@ -325,6 +327,10 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
    private final ClientTelemetryManager telemetryManager;
    private final ProfileKeyPairManager profileKeyPairManager;
    private final RealmsDataFetcher realmsDataFetcher;
+
+
+   public static Atmos atmos = new Atmos();
+
    @Nullable
    public MultiPlayerGameMode gameMode;
    @Nullable
@@ -589,6 +595,7 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.setScreen(new TitleScreen(true));
       }
 
+
    }
 
    private IoSupplier<InputStream> getIconFile(String... p_250431_) throws IOException {
@@ -612,29 +619,14 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       this.window.setTitle(this.createTitle());
    }
 
+   String title_name = "Minecraft Atmos";
+
    private String createTitle() {
-      StringBuilder stringbuilder = new StringBuilder("Minecraft");
-      if (checkModStatus().shouldReportAsModified()) {
-         stringbuilder.append("*");
-      }
+      return title_name;
+   }
 
-      stringbuilder.append(" ");
-      stringbuilder.append(SharedConstants.getCurrentVersion().getName());
-      ClientPacketListener clientpacketlistener = this.getConnection();
-      if (clientpacketlistener != null && clientpacketlistener.getConnection().isConnected()) {
-         stringbuilder.append(" - ");
-         if (this.singleplayerServer != null && !this.singleplayerServer.isPublished()) {
-            stringbuilder.append(I18n.get("title.singleplayer"));
-         } else if (this.isConnectedToRealms()) {
-            stringbuilder.append(I18n.get("title.multiplayer.realms"));
-         } else if (this.singleplayerServer == null && (this.getCurrentServer() == null || !this.getCurrentServer().isLan())) {
-            stringbuilder.append(I18n.get("title.multiplayer.other"));
-         } else {
-            stringbuilder.append(I18n.get("title.multiplayer.lan"));
-         }
-      }
-
-      return stringbuilder.toString();
+   private void setTitle(String title) {
+      title_name = title;
    }
 
    private UserApiService createUserApiService(YggdrasilAuthenticationService p_193586_, GameConfig p_193587_) {
