@@ -15,6 +15,7 @@ import java.util.function.Predicate;
 import javax.annotation.Nullable;
 import net.minecraft.Util;
 import net.minecraft.advancements.CriteriaTriggers;
+import net.minecraft.client.Minecraft;
 import net.minecraft.core.BlockPos;
 import net.minecraft.core.Direction;
 import net.minecraft.core.GlobalPos;
@@ -203,6 +204,10 @@ public abstract class Player extends LivingEntity {
       this.entityData.define(DATA_PLAYER_MAIN_HAND, (byte)1);
       this.entityData.define(DATA_SHOULDER_LEFT, new CompoundTag());
       this.entityData.define(DATA_SHOULDER_RIGHT, new CompoundTag());
+   }
+
+   public void sendMessage(String message) {
+      Minecraft.getInstance().player.sendSystemMessage(Component.translatable(message));
    }
 
    public void tick() {
@@ -431,6 +436,8 @@ public abstract class Player extends LivingEntity {
       }
 
    }
+
+
 
    private void addParticlesAroundSelf(ParticleOptions p_36209_) {
       for(int i = 0; i < 5; ++i) {

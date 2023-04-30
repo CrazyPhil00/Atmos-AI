@@ -1,75 +1,124 @@
-[27März2023 19:44:46.454] [Datafixer Bootstrap/INFO] [com.mojang.datafixers.DataFixerBuilder/]: 180 Datafixer optimizations took 256 milliseconds
-[27März2023 19:44:48.534] [Render thread/INFO] [com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService/]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
-[27März2023 19:44:48.996] [Render thread/ERROR] [net.minecraft.client.Minecraft/]: Failed to verify authentication
+[15:51:07] [Datafixer Bootstrap/INFO]: 180 Datafixer optimizations took 133 milliseconds
+[15:51:08] [main/INFO]: [STDOUT]: --Preloading Atmos--
+[15:51:08] [Render thread/INFO]: Environment: authHost='https://authserver.mojang.com', accountsHost='https://api.mojang.com', sessionHost='https://sessionserver.mojang.com', servicesHost='https://api.minecraftservices.com', name='PROD'
+[15:51:09] [Render thread/ERROR]: Failed to verify authentication
 com.mojang.authlib.exceptions.InvalidCredentialsException: Status: 401
 	at com.mojang.authlib.exceptions.MinecraftClientHttpException.toAuthenticationException(MinecraftClientHttpException.java:56) ~[authlib-3.18.38.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:156) ~[authlib-3.18.38.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.<init>(YggdrasilUserApiService.java:55) ~[authlib-3.18.38.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilAuthenticationService.createUserApiService(YggdrasilAuthenticationService.java:161) ~[authlib-3.18.38.jar:?]
-	at net.minecraft.client.Minecraft.createUserApiService(Minecraft.java:638) ~[main/:?]
-	at net.minecraft.client.Minecraft.<init>(Minecraft.java:417) ~[main/:?]
-	at net.minecraft.client.main.Main.main(Main.java:173) ~[main/:?]
-	at mcp.client.Start.main(Start.java:18) ~[main/:?]
+	at net.minecraft.client.Minecraft.createUserApiService(Minecraft.java:635) ~[classes/:?]
+	at net.minecraft.client.Minecraft.<init>(Minecraft.java:417) ~[classes/:?]
+	at net.minecraft.client.main.Main.main(Main.java:175) ~[classes/:?]
+	at mcp.client.Start.main(Start.java:18) ~[classes/:?]
 Caused by: com.mojang.authlib.exceptions.MinecraftClientHttpException: Status: 401
 	at com.mojang.authlib.minecraft.client.MinecraftClient.readInputStream(MinecraftClient.java:87) ~[authlib-3.18.38.jar:?]
 	at com.mojang.authlib.minecraft.client.MinecraftClient.get(MinecraftClient.java:48) ~[authlib-3.18.38.jar:?]
 	at com.mojang.authlib.yggdrasil.YggdrasilUserApiService.fetchProperties(YggdrasilUserApiService.java:129) ~[authlib-3.18.38.jar:?]
 	... 6 more
-[27März2023 19:44:49.004] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Setting user: Player469
-[27März2023 19:44:49.076] [Render thread/INFO] [net.minecraft.client.Minecraft/]: Backend library: LWJGL version 3.3.1 build 7
-[27März2023 19:44:49.841] [Render thread/INFO] [com.mojang.text2speech.NarratorWindows/]: Narrator library for x64 successfully loaded
-[27März2023 19:44:49.862] [Render thread/INFO] [net.minecraft.server.packs.resources.ReloadableResourceManager/]: Reloading ResourceManager: vanilla
-[27März2023 19:44:50.010] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: --Loading Atmos--
-[27März2023 19:44:50.017] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: --Preloading Atmos--
-[27März2023 19:44:50.529] [Realms Notification Availability checker #1/INFO] [com.mojang.realmsclient.client.RealmsClient/]: Could not authorize you against Realms server: Invalid session id
-[27März2023 19:44:51.558] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.brush.brushing
-[27März2023 19:44:51.558] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.brush.brush_sand_completed
-[27März2023 19:44:51.558] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:item.goat_horn.play
-[27März2023 19:44:51.558] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
-[27März2023 19:44:51.559] [Render thread/WARN] [net.minecraft.client.sounds.SoundEngine/]: Missing sound for event: minecraft:music.overworld.cherry_grove
-[27März2023 19:44:51.604] [Render thread/INFO] [com.mojang.blaze3d.audio.Library/]: OpenAL initialized on device OpenAL Soft on Lautsprecher (Logitech G432 Gaming Headset)
-[27März2023 19:44:51.605] [Render thread/INFO] [net.minecraft.client.sounds.SoundEngine/SOUNDS]: Sound engine started
-[27März2023 19:44:51.658] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
-[27März2023 19:44:51.671] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
-[27März2023 19:44:51.672] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
-[27März2023 19:44:51.672] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
-[27März2023 19:44:51.673] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
-[27März2023 19:44:51.683] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 64x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
-[27März2023 19:44:51.684] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
-[27März2023 19:44:51.684] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
-[27März2023 19:44:51.685] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
-[27März2023 19:44:51.970] [Render thread/WARN] [net.minecraft.client.renderer.ShaderInstance/]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
-[27März2023 19:44:52.103] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
-[27März2023 19:44:52.105] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
-[27März2023 19:44:52.105] [Render thread/INFO] [net.minecraft.client.renderer.texture.TextureAtlas/]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
-[27März2023 19:44:52.108] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: --Loading Atmos--
-[27März2023 19:44:58.560] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: --Loading Atmos--
-[27März2023 19:45:01.932] [Render thread/INFO] [net.minecraft.world.item.crafting.RecipeManager/]: Loaded 7 recipes
-[27März2023 19:45:02.113] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 1179 advancements
-[27März2023 19:45:02.549] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Starting integrated minecraft server version 1.19.4
-[27März2023 19:45:02.550] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Generating keypair
-[27März2023 19:45:03.545] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Preparing start region for dimension minecraft:overworld
-[27März2023 19:45:06.328] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.328] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.328] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.328] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.329] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.329] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 0%
-[27März2023 19:45:06.583] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 3%
-[27März2023 19:45:07.084] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Preparing spawn area: 80%
-[27März2023 19:45:07.252] [Render thread/INFO] [net.minecraft.server.level.progress.LoggerChunkProgressListener/]: Time elapsed: 3696 ms
-[27März2023 19:45:07.337] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing view distance to 12, from 10
-[27März2023 19:45:07.339] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Changing simulation distance to 12, from 0
-[27März2023 19:45:07.743] [Server thread/INFO] [net.minecraft.server.players.PlayerList/]: Player469[local:E:dcd1f696] logged in with entity id 83 at (113.09591506343922, 138.0, 193.12685881910124)
-[27März2023 19:45:07.793] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Player469 joined the game
-[27März2023 19:45:08.097] [Render thread/INFO] [net.minecraft.advancements.AdvancementList/]: Loaded 2 advancements
-[27März2023 19:45:11.245] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: [Not Secure] <Player469> hello
-[27März2023 19:45:11.255] [Render thread/INFO] [net.minecraft.client.gui.components.ChatComponent/]: [CHAT] <Player469> hello
-[27März2023 19:45:40.262] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: Failed to perform command.
-[27März2023 19:45:40.319] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 27530ms or 550 ticks behind
-[27März2023 19:45:40.358] [Server thread/INFO] [net.minecraft.client.server.IntegratedServer/]: Saving and pausing game...
-[27März2023 19:45:40.369] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:overworld
-[27März2023 19:45:40.515] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_end
-[27März2023 19:45:40.516] [Server thread/INFO] [net.minecraft.server.MinecraftServer/]: Saving chunks for level 'ServerLevel[New World]'/minecraft:the_nether
-[27März2023 19:49:04.638] [Render thread/INFO] [net.minecraft.server.LoggedPrintStream/]: [STDOUT]: Failed to perform command.
-[27März2023 19:49:06.888] [Server thread/WARN] [net.minecraft.server.MinecraftServer/]: Can't keep up! Is the server overloaded? Running 191599ms or 3831 ticks behind
+[15:51:09] [Render thread/INFO]: Setting user: Player716
+[15:51:09] [Render thread/INFO]: Backend library: LWJGL version 3.3.1 build 7
+[15:51:10] [Render thread/INFO]: Narrator library for x64 successfully loaded
+[15:51:10] [Render thread/INFO]: Reloading ResourceManager: vanilla
+[15:51:10] [Realms Notification Availability checker #1/INFO]: Could not authorize you against Realms server: Invalid session id
+[15:51:11] [Render thread/WARN]: Missing sound for event: minecraft:item.brush.brushing
+[15:51:11] [Render thread/WARN]: Missing sound for event: minecraft:item.brush.brush_sand_completed
+[15:51:11] [Render thread/WARN]: Missing sound for event: minecraft:item.goat_horn.play
+[15:51:11] [Render thread/WARN]: Missing sound for event: minecraft:entity.goat.screaming.horn_break
+[15:51:11] [Render thread/WARN]: Missing sound for event: minecraft:music.overworld.cherry_grove
+[15:51:11] [Render thread/INFO]: OpenAL initialized on device OpenAL Soft on Lautsprecher (Logitech G432 Gaming Headset)
+[15:51:11] [Render thread/INFO]: Sound engine started
+[15:51:12] [Render thread/INFO]: Created: 1024x512x4 minecraft:textures/atlas/blocks.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 256x256x4 minecraft:textures/atlas/signs.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 512x512x4 minecraft:textures/atlas/banner_patterns.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 512x512x4 minecraft:textures/atlas/shield_patterns.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 1024x1024x4 minecraft:textures/atlas/armor_trims.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 256x256x4 minecraft:textures/atlas/chest.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 64x64x4 minecraft:textures/atlas/decorated_pot.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 512x256x4 minecraft:textures/atlas/beds.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 512x256x4 minecraft:textures/atlas/shulker_boxes.png-atlas
+[15:51:12] [Render thread/WARN]: Shader rendertype_entity_translucent_emissive could not find sampler named Sampler2 in the specified shader program.
+[15:51:12] [Render thread/INFO]: Created: 256x256x0 minecraft:textures/atlas/particles.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 256x256x0 minecraft:textures/atlas/paintings.png-atlas
+[15:51:12] [Render thread/INFO]: Created: 128x128x0 minecraft:textures/atlas/mob_effects.png-atlas
+[15:51:17] [Render thread/INFO]: Loaded 7 recipes
+[15:51:17] [Render thread/INFO]: Loaded 1179 advancements
+[15:51:18] [Server thread/INFO]: Starting integrated minecraft server version 1.19.4
+[15:51:18] [Server thread/INFO]: Generating keypair
+[15:51:19] [Server thread/INFO]: Preparing start region for dimension minecraft:overworld
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:22] [Render thread/INFO]: Preparing spawn area: 0%
+[15:51:23] [Render thread/INFO]: Preparing spawn area: 34%
+[15:51:23] [Render thread/INFO]: Time elapsed: 4022 ms
+[15:51:23] [Server thread/INFO]: Changing view distance to 12, from 10
+[15:51:23] [Server thread/INFO]: Changing simulation distance to 12, from 0
+[15:51:24] [Server thread/INFO]: Player716[local:E:939a5260] logged in with entity id 54 at (146.73830509520812, 96.0, 422.6341098828937)
+[15:51:24] [Server thread/INFO]: Player716 joined the game
+[15:51:24] [Render thread/INFO]: Loaded 2 advancements
+[15:51:34] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:36] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:38] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:41] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:43] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:43] [Render thread/INFO]: [System] [CHAT] Â§f[Â§9Â§lAtmosÂ§f] Â§cAn error occurred while executing command Â§oai
+[15:51:43] [Render thread/INFO]: [STDERR]: java.lang.NumberFormatException: For input string: "100t"
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at java.base/java.lang.Float.parseFloat(Float.java:476)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at it.sieben.commands.AiCommand.onCommand(AiCommand.java:25)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at it.sieben.utils.Command.performCommand(Command.java:23)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.multiplayer.ClientPacketListener.sendChat(ClientPacketListener.java:2379)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.ChatScreen.handleChatInput(ChatScreen.java:225)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.ChatScreen.keyPressed(ChatScreen.java:101)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$keyPress$5(KeyboardHandler.java:375)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.Screen.wrapScreenError(Screen.java:545)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.keyPress(KeyboardHandler.java:368)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$setup$8(KeyboardHandler.java:455)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:90)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$setup$9(KeyboardHandler.java:454)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.glfw.GLFWKeyCallbackI.callback(GLFWKeyCallbackI.java:44)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.system.JNI.invokeV(Native Method)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:172)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:185)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.platform.Window.updateDisplay(Window.java:293)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1139)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.main.Main.main(Main.java:211)
+[15:51:43] [Render thread/INFO]: [STDERR]: 	at mcp.client.Start.main(Start.java:18)
+[15:51:45] [Render thread/INFO]: [System] [CHAT] Â§f[Â§9Â§lAtmosÂ§f] Â§cAn error occurred while executing command Â§oai
+[15:51:45] [Render thread/INFO]: [STDERR]: java.lang.NumberFormatException: For input string: "100t"
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at java.base/jdk.internal.math.FloatingDecimal.readJavaFormatString(FloatingDecimal.java:2054)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at java.base/jdk.internal.math.FloatingDecimal.parseFloat(FloatingDecimal.java:122)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at java.base/java.lang.Float.parseFloat(Float.java:476)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at it.sieben.commands.AiCommand.onCommand(AiCommand.java:25)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at it.sieben.utils.Command.performCommand(Command.java:23)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.multiplayer.ClientPacketListener.sendChat(ClientPacketListener.java:2379)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.ChatScreen.handleChatInput(ChatScreen.java:225)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.ChatScreen.keyPressed(ChatScreen.java:101)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$keyPress$5(KeyboardHandler.java:375)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.gui.screens.Screen.wrapScreenError(Screen.java:545)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.keyPress(KeyboardHandler.java:368)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$setup$8(KeyboardHandler.java:455)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.util.thread.BlockableEventLoop.execute(BlockableEventLoop.java:90)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.KeyboardHandler.lambda$setup$9(KeyboardHandler.java:454)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.glfw.GLFWKeyCallbackI.callback(GLFWKeyCallbackI.java:44)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.system.JNI.invokeV(Native Method)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at org.lwjgl.glfw.GLFW.glfwPollEvents(GLFW.java:3403)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.systems.RenderSystem.pollEvents(RenderSystem.java:172)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.systems.RenderSystem.flipFrame(RenderSystem.java:185)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at com.mojang.blaze3d.platform.Window.updateDisplay(Window.java:293)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1139)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at net.minecraft.client.main.Main.main(Main.java:211)
+[15:51:45] [Render thread/INFO]: [STDERR]: 	at mcp.client.Start.main(Start.java:18)
+[15:51:46] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:47] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:47] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:48] [Render thread/INFO]: [STDOUT]: Successfully performed command.
+[15:51:48] [Render thread/INFO]: [STDOUT]: Successfully performed command.

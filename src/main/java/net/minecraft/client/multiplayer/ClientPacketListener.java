@@ -9,7 +9,8 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.ParseResults;
 import com.mojang.logging.LogUtils;
 import io.netty.buffer.Unpooled;
-import it.sieben.commands.Command;
+import it.sieben.utils.Command;
+import it.sieben.utils.ChatColor;
 import it.unimi.dsi.fastutil.objects.ReferenceOpenHashSet;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -2363,13 +2364,28 @@ public class ClientPacketListener implements TickablePacketListener, ClientGameP
    //TODO Added command System
    public void sendChat(String msg) {
       if (msg.startsWith(".")) {
+
+         String full_cmd = msg.replaceFirst("\\.", "");
+
          String[] args = Arrays.copyOfRange(msg.split(" "), 1, msg.split(" ").length);
-         String command = msg.split(" ")[0].replaceAll(".", "");
+
+         String command = full_cmd.split(" ")[0];
+
          Player player = Minecraft.getInstance().player;
 
-         if (Command.performCommand(player, command, args)) {
-            System.out.println("Failed to perform command.");
-         }else System.out.println("Successfully performed command.");
+         if (args == null) args = new String[0];
+
+         try {
+            if (Command.performCommand(player, command, args)) {
+               System.out.println("Failed to perform command.");
+            }else System.out.println("Successfully performed command.");
+
+         }catch (Exception e){
+            Minecraft.getInstance().player.sendMessage(ChatColor.WHITE.prefix() + ChatColor.RED + "An error occurred while executing command " + ChatColor.ITALIC + command);
+            e.printStackTrace();
+         }
+
+
          return;
       }
 

@@ -625,8 +625,9 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       return title_name;
    }
 
-   private void setTitle(String title) {
+   public void setTitle(String title) {
       title_name = title;
+      updateTitle();
    }
 
    private UserApiService createUserApiService(YggdrasilAuthenticationService p_193586_, GameConfig p_193587_) {
@@ -727,6 +728,9 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
          this.emergencySave();
          crash(crashreport);
       }
+
+      //TODO Main load
+      Atmos.getInstance().load();
 
    }
 

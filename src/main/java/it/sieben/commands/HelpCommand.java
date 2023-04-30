@@ -1,34 +1,72 @@
 package it.sieben.commands;
 
-import net.minecraft.client.Minecraft;
-import net.minecraft.network.chat.Component;
+import it.sieben.utils.ChatColor;
+import it.sieben.utils.Command;
+import it.sieben.utils.CommandExecutor;
 import net.minecraft.world.entity.player.Player;
 
-public class HelpCommand extends CommandExecutor{
+public class HelpCommand extends CommandExecutor {
 
 
     public HelpCommand(String command) {
         super(command);
 
-        setCommand("help");
-
+        setHelp_message("Shows the Help message");
+        setUsage(ChatColor.ITALIC + ".help {command}");
     }
 
     @Override
     public boolean onCommand(Player sender, String command, String[] args) {
 
-        String helpMenu = "§9-----------------------\n" +
-                "       §1Atmos-Help     §8\n";
 
-        int i = 0;
-        for (String arg : args) {
-            helpMenu += "[" + i + "] : " + arg + "\n";
-            i ++;
-        }
-        helpMenu += "§9-----------------------";
+        if (args.length > 0) command_help(args[0], command, sender);
 
-        sender.sendSystemMessage(Component.translatable(helpMenu));
+        else  help_list(sender, args);
+
+
 
         return false;
+    }
+
+
+    public void command_help(String arg, String command, Player sender) {
+
+        if (Command.commandList.contains(arg)) {
+            sender.sendMessage(ChatColor.WHITE.prefix() + ChatColor.RED + "Command " + ChatColor.ITALIC + arg + ChatColor.RED + "doesn't, use .help to see all commands.");
+            return;
+        }
+
+        for (CommandExecutor cmd : Command.commandList) {
+            if (arg.equalsIgnoreCase(cmd.getCommand())) {
+
+                sender.sendMessage(ChatColor.DARK_GRAY + "-----------------------");
+                sender.sendMessage("");
+                sender.sendMessage("");
+                sender.sendMessage(ChatColor.WHITE + "       [" + ChatColor.BLUE + ChatColor.BOLD + "Atmos" + ChatColor.RESET + ChatColor.WHITE + "-" + ChatColor.DARK_BLUE + ChatColor.BOLD + "Help" + ChatColor.WHITE + "]");
+                sender.sendMessage("");
+                sender.sendMessage(ChatColor.WHITE + "          [" + ChatColor.GRAY + ChatColor.BOLD + cmd.getCommand() + ChatColor.WHITE + "]");
+                sender.sendMessage("");
+                sender.sendMessage(ChatColor.WHITE + "[" + ChatColor.GRAY + ChatColor.BOLD + "Description" + ChatColor.WHITE + "] " + ChatColor.GRAY + cmd.getHelp_message());
+                sender.sendMessage("[" + ChatColor.GRAY + ChatColor.BOLD + "Usage" + ChatColor.WHITE + "] " + ChatColor.DARK_GRAY + cmd.getUsage());
+                sender.sendMessage("");
+                sender.sendMessage(ChatColor.DARK_GRAY + "-----------------------");
+            }
+        }
+
+    }
+
+    public void help_list(Player sender, String[] args) {
+        sender.sendMessage(ChatColor.DARK_GRAY + "-----------------------");
+        sender.sendMessage("");
+        sender.sendMessage("");
+        sender.sendMessage(ChatColor.WHITE + "       [" + ChatColor.BLUE + ChatColor.BOLD + "Atmos" + ChatColor.RESET + ChatColor.WHITE + "-" + ChatColor.DARK_BLUE + ChatColor.BOLD + "Help" + ChatColor.WHITE + "]");
+        sender.sendMessage("");
+
+        for (CommandExecutor cmds : Command.commandList) {
+            sender.sendMessage(ChatColor.WHITE + "[" + ChatColor.GRAY + ChatColor.BOLD + cmds.getCommand() + ChatColor.WHITE + "] : " + ChatColor.DARK_GRAY + cmds.getUsage());
+        }
+        sender.sendMessage("");
+        sender.sendMessage("");
+        sender.sendMessage(ChatColor.DARK_GRAY + "-----------------------");
     }
 }

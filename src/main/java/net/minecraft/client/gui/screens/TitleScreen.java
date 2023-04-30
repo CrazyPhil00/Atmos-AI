@@ -14,6 +14,7 @@ import java.util.concurrent.Executor;
 import javax.annotation.Nullable;
 
 import it.sieben.Atmos;
+import it.sieben.render.RenderTitleScreen;
 import net.minecraft.SharedConstants;
 import net.minecraft.Util;
 import net.minecraft.client.Minecraft;
@@ -111,6 +112,8 @@ public class TitleScreen extends Screen {
          this.splash = this.minecraft.getSplashManager().getSplash();
       }
 
+      //TODO Titlescreen
+
       int i = this.font.width(COPYRIGHT_TEXT);
       int j = this.width - i - 2;
       int k = 24;
@@ -149,8 +152,7 @@ public class TitleScreen extends Screen {
          this.warningLabel = new TitleScreen.WarningLabel(this.font, MultiLineLabel.create(this.font, Component.translatable("title.32bit.deprecation"), 350, 2), this.width / 2, l - 24);
       }
 
-      //TODO Main load
-      Atmos.getInstance().load();
+
 
 
    }

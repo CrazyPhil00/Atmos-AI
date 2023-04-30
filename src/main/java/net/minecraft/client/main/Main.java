@@ -153,6 +153,7 @@ public class Main {
       Thread thread = new Thread("Client Shutdown Thread") {
          public void run() {
             Minecraft minecraft1 = Minecraft.getInstance();
+
             if (minecraft1 != null) {
                IntegratedServer integratedserver = minecraft1.getSingleplayerServer();
                if (integratedserver != null) {
@@ -166,6 +167,7 @@ public class Main {
       Runtime.getRuntime().addShutdownHook(thread);
 
       final Minecraft minecraft;
+      atmos.preLoad();
       try {
          Thread.currentThread().setName("Render thread");
          RenderSystem.initRenderThread();
@@ -227,7 +229,7 @@ public class Main {
 
       //TODO Preloading Atmos
 
-      atmos.preLoad();
+
 
    }
 
