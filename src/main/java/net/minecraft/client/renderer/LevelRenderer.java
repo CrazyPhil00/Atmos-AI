@@ -1110,6 +1110,7 @@ public class LevelRenderer implements ResourceManagerReloadListener, AutoCloseab
    public void renderLevel(PoseStack p_109600_, float p_109601_, long p_109602_, boolean p_109603_, Camera p_109604_, GameRenderer p_109605_, LightTexture p_109606_, Matrix4f p_254120_) {
       RenderSystem.setShaderGameTime(this.level.getGameTime(), p_109601_);
       this.blockEntityRenderDispatcher.prepare(this.level, p_109604_, this.minecraft.hitResult);
+
       this.entityRenderDispatcher.prepare(this.level, p_109604_, this.minecraft.crosshairPickEntity);
       ProfilerFiller profilerfiller = this.level.getProfiler();
       profilerfiller.popPush("light_update_queue");

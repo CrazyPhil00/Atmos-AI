@@ -22,7 +22,7 @@ public class IpCommand extends CommandExecutor {
         try {
             ip = Minecraft.getInstance().getCurrentServer().ip;
         } catch (NullPointerException e) {
-            sender.sendMessage(ChatColor.WHITE.prefix() + ChatColor.RED + "You are in a Singleplayer World, the .ip command doesnt work!");
+            sender.sendMessage(ChatColor.WHITE.prefix() + ChatColor.RED + "You are in a Singleplayer World, the .ip command doesn't work!");
             return true;
         }
 

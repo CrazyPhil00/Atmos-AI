@@ -1,0 +1,146 @@
+---- Minecraft Crash Report ----
+// My bad.
+
+Time: 2023-04-30 19:12:10
+Description: Accessing LegacyRandomSource from multiple threads
+
+java.lang.IllegalStateException: Accessing LegacyRandomSource from multiple threads
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:79)
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:41)
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:19)
+	at net.minecraft.client.multiplayer.ClientLevel.doAnimateTick(ClientLevel.java:376)
+	at net.minecraft.client.multiplayer.ClientLevel.animateTick(ClientLevel.java:356)
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1805)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1086)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:79)
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:41)
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:19)
+	at net.minecraft.client.multiplayer.ClientLevel.doAnimateTick(ClientLevel.java:376)
+	at net.minecraft.client.multiplayer.ClientLevel.animateTick(ClientLevel.java:356)
+
+-- Thread dumps --
+Details:
+	Thread dumps: Render thread: 
+	at java.base/java.lang.Thread.getStackTrace(Thread.java:1610)
+	at net.minecraft.util.ThreadingDetector.stackTrace(ThreadingDetector.java:87)
+	at java.base/java.util.stream.ReferencePipeline$3$1.accept(ReferencePipeline.java:197)
+	at java.base/java.util.stream.ReferencePipeline$2$1.accept(ReferencePipeline.java:179)
+	at java.base/java.util.Spliterators$ArraySpliterator.forEachRemaining(Spliterators.java:992)
+	at java.base/java.util.stream.AbstractPipeline.copyInto(AbstractPipeline.java:509)
+	at java.base/java.util.stream.AbstractPipeline.wrapAndCopyInto(AbstractPipeline.java:499)
+	at java.base/java.util.stream.ReduceOps$ReduceOp.evaluateSequential(ReduceOps.java:921)
+	at java.base/java.util.stream.AbstractPipeline.evaluate(AbstractPipeline.java:234)
+	at java.base/java.util.stream.ReferencePipeline.collect(ReferencePipeline.java:682)
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:77)
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:41)
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:19)
+	at net.minecraft.client.multiplayer.ClientLevel.doAnimateTick(ClientLevel.java:376)
+	at net.minecraft.client.multiplayer.ClientLevel.animateTick(ClientLevel.java:356)
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1805)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1086)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+Stacktrace:
+	at net.minecraft.util.ThreadingDetector.makeThreadingException(ThreadingDetector.java:79)
+	at net.minecraft.world.level.levelgen.LegacyRandomSource.next(LegacyRandomSource.java:41)
+	at net.minecraft.world.level.levelgen.BitRandomSource.nextInt(BitRandomSource.java:19)
+	at net.minecraft.client.multiplayer.ClientLevel.doAnimateTick(ClientLevel.java:376)
+	at net.minecraft.client.multiplayer.ClientLevel.animateTick(ClientLevel.java:356)
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1805)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1086)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Player11'/55, l='ClientLevel', x=509.16, y=93.00, z=417.48]]
+	Chunk stats: 2025, 1397
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,67,0), Section: (at 0,3,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 324659 game time, 133787 day time
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:443)
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2260)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:721)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.4
+	Minecraft Version ID: 1.19.4
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.5, JetBrains s.r.o.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), JetBrains s.r.o.
+	Memory: 1991500872 bytes (1899 MiB) / 3288334336 bytes (3136 MiB) up to 8577351680 bytes (8180 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 3600X 6-Core Processor             
+	Identifier: AuthenticAMD Family 23 Model 113 Stepping 0
+	Microarchitecture: Zen 2
+	Frequency (GHz): 3.79
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon RX 5700
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x731f
+	Graphics card #0 versionInfo: DriverVersion=31.0.14043.1000
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.13
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.13
+	Memory slot #1 type: DDR4
+	Memory slot #2 capacity (MB): 8192.00
+	Memory slot #2 clockSpeed (GHz): 2.13
+	Memory slot #2 type: DDR4
+	Memory slot #3 capacity (MB): 8192.00
+	Memory slot #3 clockSpeed (GHz): 2.13
+	Memory slot #3 type: DDR4
+	Virtual memory max (MB): 44992.47
+	Virtual memory used (MB): 26842.94
+	Swap memory total (MB): 12288.00
+	Swap memory used (MB): 138.04
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Launched Version: mcp
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: AMD Radeon RX 5700 GL version 3.2.0 Core Profile Context 23.3.2.230315, ATI Technologies Inc.
+	Window size: 854x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Very likely; Client jar signature invalidated; Server jar signature invalidated
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: en_us
+	CPU: 12x AMD Ryzen 5 3600X 6-Core Processor 
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Player11'/55, l='ServerLevel[New World]', x=509.33, y=93.50, z=417.51]]
+	Data Packs: vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable

@@ -1,0 +1,168 @@
+---- Minecraft Crash Report ----
+// Hi. I'm Minecraft, and I'm a crashaholic.
+
+Time: 2023-05-01 14:39:18
+Description: Ticking entity
+
+java.util.NoSuchElementException
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.next(Collections.java:1054)
+	at net.minecraft.world.level.entity.EntitySection.getEntities(EntitySection.java:45)
+	at net.minecraft.world.level.entity.EntitySectionStorage.lambda$getEntities$2(EntitySectionStorage.java:122)
+	at net.minecraft.world.level.entity.EntitySectionStorage.forEachAccessibleNonEmptySection(EntitySectionStorage.java:55)
+	at net.minecraft.world.level.entity.EntitySectionStorage.getEntities(EntitySectionStorage.java:121)
+	at net.minecraft.world.level.entity.LevelEntityGetterAdapter.get(LevelEntityGetterAdapter.java:41)
+	at net.minecraft.world.level.Level.getEntities(Level.java:617)
+	at net.minecraft.world.level.Level.getEntities(Level.java:612)
+	at net.minecraft.world.level.Level.getEntities(Level.java:607)
+	at net.minecraft.world.entity.LivingEntity.pushEntities(LivingEntity.java:2589)
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2542)
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:497)
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:765)
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2223)
+	at net.minecraft.world.entity.player.Player.tick(Player.java:240)
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70)
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:186)
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:264)
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:434)
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:247)
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:245)
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1762)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1086)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+
+A detailed walkthrough of the error, its code path and all known details is as follows:
+---------------------------------------------------------------------------------------
+
+-- Head --
+Thread: Render thread
+Stacktrace:
+	at java.base/java.util.ArrayList$Itr.next(ArrayList.java:970)
+	at java.base/java.util.Collections$UnmodifiableCollection$1.next(Collections.java:1054)
+	at net.minecraft.world.level.entity.EntitySection.getEntities(EntitySection.java:45)
+	at net.minecraft.world.level.entity.EntitySectionStorage.lambda$getEntities$2(EntitySectionStorage.java:122)
+	at net.minecraft.world.level.entity.EntitySectionStorage.forEachAccessibleNonEmptySection(EntitySectionStorage.java:55)
+	at net.minecraft.world.level.entity.EntitySectionStorage.getEntities(EntitySectionStorage.java:121)
+	at net.minecraft.world.level.entity.LevelEntityGetterAdapter.get(LevelEntityGetterAdapter.java:41)
+	at net.minecraft.world.level.Level.getEntities(Level.java:617)
+	at net.minecraft.world.level.Level.getEntities(Level.java:612)
+	at net.minecraft.world.level.Level.getEntities(Level.java:607)
+	at net.minecraft.world.entity.LivingEntity.pushEntities(LivingEntity.java:2589)
+	at net.minecraft.world.entity.LivingEntity.aiStep(LivingEntity.java:2542)
+	at net.minecraft.world.entity.player.Player.aiStep(Player.java:497)
+	at net.minecraft.client.player.LocalPlayer.aiStep(LocalPlayer.java:765)
+	at net.minecraft.world.entity.LivingEntity.tick(LivingEntity.java:2223)
+	at net.minecraft.world.entity.player.Player.tick(Player.java:240)
+	at net.minecraft.client.player.AbstractClientPlayer.tick(AbstractClientPlayer.java:70)
+	at net.minecraft.client.player.LocalPlayer.tick(LocalPlayer.java:186)
+	at net.minecraft.client.multiplayer.ClientLevel.tickNonPassenger(ClientLevel.java:264)
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:434)
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:247)
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:245)
+
+-- Entity being ticked --
+Details:
+	Entity Type: minecraft:player (net.minecraft.client.player.LocalPlayer)
+	Entity ID: 55
+	Entity Name: Player204
+	Entity's Exact location: 276.66, 97.81, 383.20
+	Entity's Block location: World: (276,97,383), Section: (at 4,1,15 in 17,6,23; chunk contains blocks 272,-64,368 to 287,319,383), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Entity's Momentum: -0.45, 0.01, -0.07
+	Entity's Passengers: []
+	Entity's Vehicle: null
+Stacktrace:
+	at net.minecraft.world.level.Level.guardEntityTick(Level.java:434)
+	at net.minecraft.client.multiplayer.ClientLevel.lambda$tickEntities$4(ClientLevel.java:247)
+	at net.minecraft.world.level.entity.EntityTickList.forEach(EntityTickList.java:53)
+	at net.minecraft.client.multiplayer.ClientLevel.tickEntities(ClientLevel.java:245)
+	at net.minecraft.client.Minecraft.tick(Minecraft.java:1762)
+	at net.minecraft.client.Minecraft.runTick(Minecraft.java:1086)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:704)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+-- Affected level --
+Details:
+	All players: 1 total; [LocalPlayer['Player204'/55, l='ClientLevel', x=276.66, y=97.81, z=383.20]]
+	Chunk stats: 2025, 1369
+	Level dimension: minecraft:overworld
+	Level spawn location: World: (0,67,0), Section: (at 0,3,0 in 0,4,0; chunk contains blocks 0,-64,0 to 15,319,15), Region: (0,0; contains chunks 0,0 to 31,31, blocks 0,-64,0 to 511,319,511)
+	Level time: 333932 game time, 8688 day time
+	Server brand: vanilla
+	Server type: Integrated singleplayer server
+Stacktrace:
+	at net.minecraft.client.multiplayer.ClientLevel.fillReportDetails(ClientLevel.java:443)
+	at net.minecraft.client.Minecraft.fillReport(Minecraft.java:2260)
+	at net.minecraft.client.Minecraft.run(Minecraft.java:721)
+	at net.minecraft.client.main.Main.main(Main.java:211)
+	at mcp.client.Start.main(Start.java:18)
+
+-- Last reload --
+Details:
+	Reload number: 1
+	Reload reason: initial
+	Finished: Yes
+	Packs: vanilla
+
+-- System Details --
+Details:
+	Minecraft Version: 1.19.4
+	Minecraft Version ID: 1.19.4
+	Operating System: Windows 10 (amd64) version 10.0
+	Java Version: 17.0.5, JetBrains s.r.o.
+	Java VM Version: OpenJDK 64-Bit Server VM (mixed mode), JetBrains s.r.o.
+	Memory: 1899867680 bytes (1811 MiB) / 4328521728 bytes (4128 MiB) up to 8577351680 bytes (8180 MiB)
+	CPUs: 12
+	Processor Vendor: AuthenticAMD
+	Processor Name: AMD Ryzen 5 3600X 6-Core Processor             
+	Identifier: AuthenticAMD Family 23 Model 113 Stepping 0
+	Microarchitecture: Zen 2
+	Frequency (GHz): 3.79
+	Number of physical packages: 1
+	Number of physical CPUs: 6
+	Number of logical CPUs: 12
+	Graphics card #0 name: AMD Radeon RX 5700
+	Graphics card #0 vendor: Advanced Micro Devices, Inc. (0x1002)
+	Graphics card #0 VRAM (MB): 4095.00
+	Graphics card #0 deviceId: 0x731f
+	Graphics card #0 versionInfo: DriverVersion=31.0.14043.1000
+	Memory slot #0 capacity (MB): 8192.00
+	Memory slot #0 clockSpeed (GHz): 2.13
+	Memory slot #0 type: DDR4
+	Memory slot #1 capacity (MB): 8192.00
+	Memory slot #1 clockSpeed (GHz): 2.13
+	Memory slot #1 type: DDR4
+	Memory slot #2 capacity (MB): 8192.00
+	Memory slot #2 clockSpeed (GHz): 2.13
+	Memory slot #2 type: DDR4
+	Memory slot #3 capacity (MB): 8192.00
+	Memory slot #3 clockSpeed (GHz): 2.13
+	Memory slot #3 type: DDR4
+	Virtual memory max (MB): 44992.47
+	Virtual memory used (MB): 26069.97
+	Swap memory total (MB): 12288.00
+	Swap memory used (MB): 257.73
+	JVM Flags: 1 total; -XX:HeapDumpPath=MojangTricksIntelDriversForPerformance_javaw.exe_minecraft.exe.heapdump
+	Launched Version: mcp
+	Backend library: LWJGL version 3.3.1 build 7
+	Backend API: AMD Radeon RX 5700 GL version 3.2.0 Core Profile Context 23.3.2.230315, ATI Technologies Inc.
+	Window size: 1269x480
+	GL Caps: Using framebuffer using OpenGL 3.2
+	GL debug messages: 
+	Using VBOs: Yes
+	Is Modded: Very likely; Client jar signature invalidated; Server jar signature invalidated
+	Type: Integrated Server (map_client.txt)
+	Graphics mode: fancy
+	Resource Packs: vanilla
+	Current Language: en_us
+	CPU: 12x AMD Ryzen 5 3600X 6-Core Processor 
+	Server Running: true
+	Player Count: 1 / 8; [ServerPlayer['Player204'/55, l='ServerLevel[New World]', x=281.59, y=97.15, z=384.05]]
+	Data Packs: vanilla
+	Enabled Feature Flags: minecraft:vanilla
+	World Generation: Stable
