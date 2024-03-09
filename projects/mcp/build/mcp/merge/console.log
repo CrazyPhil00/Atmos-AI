@@ -1,0 +1,6 @@
+JVM:         C:\Users\Phili\.jdks\temurin-17.0.5\bin\java.exe
+JVM Args:    
+Run Args:    "--client", "C:\Users\Phili\IdeaProjects\Atmos-AI\projects\mcp\build\mcp\stripClient\output.jar", "--server", "C:\Users\Phili\IdeaProjects\Atmos-AI\projects\mcp\build\mcp\stripServer\output.jar", "--ann", "1.19.4", "--output", "C:\Users\Phili\IdeaProjects\Atmos-AI\projects\mcp\build\mcp\merge\output.jar", "--inject", "false"
+Classpath:   C:\Users\Phili\.gradle\caches\forge_gradle\maven_downloader\net\minecraftforge\mergetool\1.1.5\mergetool-1.1.5-fatjar.jar
+Working Dir: C:\Users\Phili\IdeaProjects\Atmos-AI\projects\mcp\build\mcp\merge
+Main Class:  net.minecraftforge.mergetool.ConsoleMerger

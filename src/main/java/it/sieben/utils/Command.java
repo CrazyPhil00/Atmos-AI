@@ -11,7 +11,7 @@ public class Command {
 
     public static void registerCommands() {
         commandList.add(new HelpCommand("help"));
-
+        commandList.add(new ToggleCommand("toggle"));
         commandList.add(new IpCommand("ip"));
         commandList.add(new TitleCommand("title"));
         commandList.add(new ClearCommand("clear"));

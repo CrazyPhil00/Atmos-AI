@@ -62,6 +62,8 @@ import java.util.stream.Stream;
 import javax.annotation.Nullable;
 
 import it.sieben.Atmos;
+import it.sieben.modules.Module;
+import it.sieben.utils.Category;
 import net.minecraft.ChatFormatting;
 import net.minecraft.CrashReport;
 import net.minecraft.CrashReportCategory;
@@ -1186,6 +1188,13 @@ public class Minecraft extends ReentrantBlockableEventLoop<Runnable> implements 
       }
 
       this.profiler.pop();
+
+
+      //TODO CLIENT-TICK
+      Module module = new Module("CLIENT", Category.OTHER);
+
+      module.onPlayerTick();
+
    }
 
    private boolean shouldRenderFpsPie() {

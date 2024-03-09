@@ -33,17 +33,15 @@ public interface EntityGetter {
    }
 
    default boolean isUnobstructed(@Nullable Entity p_45939_, VoxelShape p_45940_) {
-      if (p_45940_.isEmpty()) {
-         return true;
-      } else {
-         for(Entity entity : this.getEntities(p_45939_, p_45940_.bounds())) {
+      if (!p_45940_.isEmpty()) {
+         for (Entity entity : this.getEntities(p_45939_, p_45940_.bounds())) {
             if (!entity.isRemoved() && entity.blocksBuilding && (p_45939_ == null || !entity.isPassengerOfSameVehicle(p_45939_)) && Shapes.joinIsNotEmpty(p_45940_, Shapes.create(entity.getBoundingBox()), BooleanOp.AND)) {
                return false;
             }
          }
 
-         return true;
       }
+      return true;
    }
 
    default <T extends Entity> List<T> getEntitiesOfClass(Class<T> p_45977_, AABB p_45978_) {
@@ -124,14 +122,17 @@ public interface EntityGetter {
 
    @Nullable
    default Player getNearestPlayer(TargetingConditions p_45942_, double p_45943_, double p_45944_, double p_45945_) {
-      return this.getNearestEntity(this.players(), p_45942_, (LivingEntity)null, p_45943_, p_45944_, p_45945_);
+      return this.getNearestEntity(this.players(), p_45942_, null, p_45943_, p_45944_, p_45945_);
    }
 
    @Nullable
    default <T extends LivingEntity> T getNearestEntity(Class<? extends T> p_45964_, TargetingConditions p_45965_, @Nullable LivingEntity p_45966_, double p_45967_, double p_45968_, double p_45969_, AABB p_45970_) {
-      return this.getNearestEntity(this.getEntitiesOfClass(p_45964_, p_45970_, (p_186454_) -> {
-         return true;
-      }), p_45965_, p_45966_, p_45967_, p_45968_, p_45969_);
+      return this.getNearestEntity(this.getEntitiesOfClass(p_45964_, p_45970_, (p_186454_) -> true), p_45965_, p_45966_, p_45967_, p_45968_, p_45969_);
+   }
+   @Nullable
+   default <T extends LivingEntity> T getNearestEntityW(Level world, Class<? extends T> entityClass, TargetingConditions targetingConditions, LivingEntity sourceEntity, double x, double y, double z, AABB searchArea) {
+      List<T> entities = (List<T>) world.getEntitiesOfClass(entityClass, searchArea, (entity) -> true);
+      return world.getNearestEntity(entities, targetingConditions, sourceEntity, x, y, z);
    }
 
    @Nullable
@@ -165,9 +166,7 @@ public interface EntityGetter {
    }
 
    default <T extends LivingEntity> List<T> getNearbyEntities(Class<T> p_45972_, TargetingConditions p_45973_, LivingEntity p_45974_, AABB p_45975_) {
-      List<T> list = this.getEntitiesOfClass(p_45972_, p_45975_, (p_186450_) -> {
-         return true;
-      });
+      List<T> list = this.getEntitiesOfClass(p_45972_, p_45975_, (p_186450_) -> true);
       List<T> list1 = Lists.newArrayList();
 
       for(T t : list) {

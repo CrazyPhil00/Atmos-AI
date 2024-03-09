@@ -7,7 +7,8 @@ public enum Category {
     WORLD("World"),
     MOVEMENT("Movement"),
     EXPLOITS("Exploits"),
-    PLAYER("Player");
+    PLAYER("Player"),
+    OTHER("Other");
     String name;
     Category(String name) {
         this.name = name;

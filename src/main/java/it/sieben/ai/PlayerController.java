@@ -29,9 +29,11 @@ import java.util.*;
 
 public class PlayerController {
 
-    private boolean isMoving;
+    private static boolean isMoving;
 
     public static void move(Player player, Vec3 direction) {
+
+        if (isMoving) return; //maybe punish
 
         Timer timer = new Timer();
         TimerTask task = new TimerTask() {

@@ -1,5 +1,6 @@
 package it.sieben.utils;
 
+import it.sieben.modules.ModuleManager;
 import net.minecraft.world.entity.player.Player;
 
 import java.awt.*;
@@ -12,6 +13,8 @@ public class CommandExecutor {
     private String command, help_message, usage;
     private String[] args;
     private Player player;
+
+    public ModuleManager moduleManager = new ModuleManager();
     
     public CommandExecutor(String command) {
         this.command = command;
